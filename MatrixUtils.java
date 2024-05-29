@@ -81,15 +81,10 @@ public class MatrixUtils {
       
       for (int i = 0; i < ma.length; i++) {
          for (int j = 0; j < ma[i].length; j++) {
-            ma[i][j] = random(lb, ub);
+            ma[i][j] = JavaUtils.random(lb, ub);
          }
       }
       
       return ma;
-   }
-   
-   /** returns a random number. lb and ub are inclusive. */
-   public static int random(int lb, int ub) {
-      return (int) (Math.random() * (ub - lb + 1) + lb);
    }
 }
