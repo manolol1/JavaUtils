@@ -1,3 +1,5 @@
+// depends on: JavaUtils.java
+
 public class MatrixUtils {
    
    /** Print a Matrix line by line with a "space" as a delimiter */
@@ -58,6 +60,24 @@ public class MatrixUtils {
       return max;
    }
    
+   /** returns average of all values in a matrix */
+   public static double getAverage(int[][] ma) {
+      return (double) getTotalSum(ma) / getTotalLength(ma);
+   }
+   
+   /** returns total count of all elements in a matrix */
+   public static int getTotalLength(int[][] ma) {
+      int length = 0;
+      
+      for (int i = 0; i < ma.length; i++) {
+         for (int j = 0; j < ma[i].length; j++) {
+            length++;
+         }
+      }
+      
+      return length;
+   }
+   
    /** returns sum of all numbers in a row */
    public static int getRowSum(int[][] ma, int row) {
       if (row < 0 || row > ma.length - 1) {
@@ -71,6 +91,35 @@ public class MatrixUtils {
          sum += ma[row][i];
       }
       
+      return sum;
+   }
+   
+   /** returns sum of all numbers in a column */
+   public static int getColSum(int[][] ma, int col) {
+      if (col < 0 || col > ma.length - 1) {
+         System.out.println("MatrixUtils.getRowSum() Error: row doesn't exist");
+         return -1;
+      }
+      
+      int sum = 0;
+      
+      for (int i = 0; i < ma[col].length; i++) {
+         sum += ma[i][col];
+      }
+      
+      return sum;
+   }
+
+   /** returns sum of all numbers in a matrix */
+   public static int getTotalSum(int[][] ma) {
+      int sum = 0;
+      
+      for (int i = 0; i < ma.length; i++) {
+         for (int j = 0; j < ma[i].length; j++) {
+            sum += ma[i][j];
+         }
+      }
+   
       return sum;
    }
 
