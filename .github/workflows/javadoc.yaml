@@ -21,36 +21,7 @@ jobs:
       - name: Generate Javadoc
         run: |
           mkdir -p docs
-          name: Generate Javadoc
-
-on:
-  push:
-    branches:
-      - main  # replace with your default branch if not 'main'
-
-jobs:
-  javadoc:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-
-      - name: Generate Javadoc
-        run: |
-          mkdir -p docs
           javadoc -d docs *.java
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
