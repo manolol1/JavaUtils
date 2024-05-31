@@ -32,7 +32,7 @@ public class MatrixUtils {
       System.out.println(s.toString());
    }
    
-   /** returns smallest number in a matrix */
+   /** return smallest number in a matrix */
    public static int getMinimum(int[][] ma) {
       int min = ma[0][0];
       
@@ -47,7 +47,7 @@ public class MatrixUtils {
       return min;
    }
    
-   /** returns largest number in a matrix */
+   /** return largest number in a matrix */
    public static int getMaximum(int[][] ma) {
       int max = ma[0][0];
       
@@ -62,12 +62,12 @@ public class MatrixUtils {
       return max;
    }
    
-   /** returns average of all values in a matrix */
+   /** return average of all values in a matrix */
    public static double getAverage(int[][] ma) {
       return (double) getTotalSum(ma) / getTotalLength(ma);
    }
    
-   /** returns total count of all elements in a matrix */
+   /** return total count of all elements in a matrix */
    public static int getTotalLength(int[][] ma) {
       int length = 0;
       
@@ -80,23 +80,18 @@ public class MatrixUtils {
       return length;
    }
    
-   /** returns sum of all numbers in a row */
+   /** return sum of all numbers in a row */
    public static int getRowSum(int[][] ma, int row) {
       if (row < 0 || row > ma.length - 1) {
          System.out.println("MatrixUtils.getRowSum() Error: row doesn't exist");
          return -1;
       }
       
-      int sum = 0;
+      return ArrayUtils.getSum(ma[row]);
       
-      for (int i = 0; i < ma[row].length; i++) {
-         sum += ma[row][i];
-      }
-      
-      return sum;
    }
    
-   /** returns sum of all numbers in a column */
+   /** return sum of all numbers in a column */
    public static int getColSum(int[][] ma, int col) {
       if (col < 0 || col > ma.length - 1) {
          System.out.println("MatrixUtils.getRowSum() Error: row doesn't exist");
@@ -112,21 +107,18 @@ public class MatrixUtils {
       return sum;
    }
 
-   /** returns sum of all numbers in a matrix */
+   /** return sum of all numbers in a matrix */
    public static int getTotalSum(int[][] ma) {
       int sum = 0;
       
       for (int i = 0; i < ma.length; i++) {
-         for (int j = 0; j < ma[i].length; j++) {
-            sum += ma[i][j];
-         }
+         sum += ArrayUtils.getSum(ma[i]);
       }
    
       return sum;
    }
 
-   
-   /** returns a new integer matrix, filled with random numbers */
+   /** return a new integer matrix, filled with random numbers */
    public static int[][] randomMatrix(int rows, int columns, int lb, int ub) {
       int[][] ma = new int[rows][columns];
       
