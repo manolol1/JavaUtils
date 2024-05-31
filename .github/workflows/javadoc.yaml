@@ -16,3 +16,4 @@ jobs:
           javadoc-branch: javadoc
           java-version: 17
           target-folder: javadoc 
+          custom-command: find . -type f -name "*.java" | xargs javadoc -d outputdir 
