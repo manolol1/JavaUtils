@@ -114,6 +114,7 @@ public class MatrixUtils {
       return sum;
    }
    
+   /** concatenate individual arrays from matrix into a single array */
    public static int[] toArray(int[][] ma) {
       int[] ar = new int[getTotalLength(ma)];
       int index = 0;
