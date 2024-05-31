@@ -1,7 +1,5 @@
 package JavaUtils;
 
-// depends on: JavaUtils.java
-
 public class MatrixUtils {
    
    /** Print a Matrix line by line with a "space" as a delimiter */
@@ -72,9 +70,7 @@ public class MatrixUtils {
       int length = 0;
       
       for (int i = 0; i < ma.length; i++) {
-         for (int j = 0; j < ma[i].length; j++) {
-            length++;
-         }
+         length += ma[i].length;
       }
       
       return length;
@@ -117,8 +113,70 @@ public class MatrixUtils {
    
       return sum;
    }
+   
+   public static int[] toArray(int[][] ma) {
+      int[] ar = new int[getTotalLength(ma)];
+      int index = 0;
+      
+      for (int i = 0; i < ma.length; i++) {
+         for (int j = 0; j < ma[i].length; j++) {
+            ar[index++] = ma[i][j];
+         }
+      }
+      
+      return ar;
+   }
+   
+   /** Sort a matrix by row sums in ascending order using SelectionSort */
+   public static void sortByRowSum(int[][] ma) {
+      int minIndex;
+      int[] temp;
+      
+      for (int i = 0; i < ma.length - 1; i++) {
+         minIndex = i;
+         
+         // find new min index
+         for (int j = i + 1; j < ma.length; j++) {
+            if (getRowSum(ma, j) < getRowSum(ma, minIndex)) {
+               minIndex = j;
+            }
+         }
+         
+         // swap ma[i] and ma[minIndex]
+         temp = ma[i];
+         ma[i] = ma[minIndex];
+         ma[minIndex] = temp;
+      }      
+   }
+   
+   /** Sort individual rows of a matrix in ascending order */
+   public static void sortIndividualRows(int[][] ma) {
+      for (int i = 0; i < ma.length; i++) {
+         ArrayUtils.sort(ma[i]);
+      }
+   }
+   
+   /** sort matrix from left to right and top to bottom in ascending order */
+   public static void sort(int[][] ma) {
+      // copy matrix into single array and sort it
+      int[] array = MatrixUtils.toArray(ma);
+      ArrayUtils.sort(array);
+      int index = 0;
+      
+      // overwrite values in matrix with sorted values
+      for (int i = 0; i < ma.length; i++) {
+         for (int j = 0; j < ma[i].length; j++) {
+            ma[i][j] = array[index++];
+         }
+      }  
+   }
 
-   /** return a new integer matrix, filled with random numbers */
+
+   /** 
+      return a new integer matrix, filled with random numbers 
+      @param lb lowerBound (inclusive)
+      @param ub upperBound (inclusive)
+   */
    public static int[][] randomMatrix(int rows, int columns, int lb, int ub) {
       int[][] ma = new int[rows][columns];
       
