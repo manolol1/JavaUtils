@@ -189,4 +189,28 @@ public class MatrixUtils {
       
       return ma;
    }
+   
+   /** 
+      return a new integer matrix, filled with ascending numbers from left to right
+      @param startNum first number (at ma[0][0])
+   */
+   public static int[][] ascendingMatrixLeftRight(int rows, int columns, int startNum) {
+      int[][] ma = new int[rows][columns];
+      
+      for (int i = 0; i < ma.length; i++) {
+         for (int j = 0; j < ma[i].length; j++) {
+            ma[i][j] = startNum++;
+         }
+      }
+      
+      return ma;
+   }
+   
+   /** 
+      return a new integer matrix, filled with ascending numbers from left to right (starting with 1)
+   */
+   public static int[][] ascendingMatrixLeftRight(int rows, int columns) {
+      return ascendingMatrixLeftRight(rows, columns, 1);
+   }
+
 }
