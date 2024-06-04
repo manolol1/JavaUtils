@@ -172,7 +172,16 @@ public class MatrixUtils {
       }  
    }
 
-
+   /** return last element of a matrix */
+   public static int getLast(int[][] ma) {
+      return ma[ma.length - 1][ma[ma.length - 1].length - 1];
+   }
+   
+   /** set last element of a matrix to a value */
+   public static void setLast(int[][] ma, int value) {
+      ma[ma.length - 1][ma[ma.length - 1].length - 1] = value;
+   }
+   
    /** 
       return a new integer matrix, filled with random numbers 
       @param lb lowerBound (inclusive)
