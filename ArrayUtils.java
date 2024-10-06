@@ -193,8 +193,8 @@ public class ArrayUtils {
           newAr[0] = value;
        } else {
           if (index > ar.length) {
-             append(ar, value);
-          } else {
+             return append(ar, value);
+          }
 
           newAr = new int[ar.length + 1];
           int indexOld = 0, indexNew = 0;
