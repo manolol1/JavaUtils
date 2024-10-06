@@ -186,27 +186,28 @@ public class ArrayUtils {
      * @return new array with the value inserted
      */
     public static int[] insert(int[] ar, int index, int value) {
-        int[] newAr;
+       int[] newAr;
 
-        if (ar == null || ar.length == 0) {
-            newAr = new int[1];
-            newAr[0] = value;
-        } else {
-            newAr = new int[ar.length + 1];
+       if (ar == null || ar.length == 0) {
+          newAr = new int[1];
+          newAr[0] = value;
+       } else {
+          newAr = new int[ar.length + 1];
 
-            int indexOld = 0, indexNew = 0;
+          int indexOld = 0, indexNew = 0;
 
-            while (indexOld < ar.length && indexNew < newAr.length) {
-                if (indexNew == index) {
-                    newAr[indexNew] = value;
-                    indexNew++;
-                } else {
-                    newAr[indexNew] = ar[indexOld];
-                    indexOld++;
-                    indexNew++;
-                }
-            }
-        }
+          while (indexOld < ar.length && indexNew < newAr.length) {
+             if (indexNew == index) {
+                newAr[indexNew] = value;
+                indexNew++;
+             } else {
+                newAr[indexNew] = ar[indexOld];
+                indexOld++;
+                indexNew++;
+             }
+          }
+       }
 
-        return newAr;
+       return newAr;
+    }
 }
