@@ -38,7 +38,7 @@ public class ArrayUtils {
       sb.append(ar[0]);
       
       for (int i = 1; i < ar.length; i++) {
-         sb.append(ar[i]).append(delimiter);
+         sb.append(delimiter).append(ar[i]);
       }
       
       return sb.toString();
