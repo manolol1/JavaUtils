@@ -213,4 +213,29 @@ public class ArrayUtils {
 
        return newAr;
     }
+
+    /**
+     * Delete all occurrences of a value from an array
+     * @param ar array to delete in
+     * @param value value to delete
+     * @return new array with all occurrences of the value removed
+     */
+    public static int[] deleteAll(int[] ar, int value) {
+       int[] newAr = new int[ar.length];
+       ArrayUtils.arrayCopy(ar, newAr);
+
+       int indexNew = 0;
+ 
+       for (int i : ar) {
+          if (i != value) {
+             newAr[indexNew] = i;
+             indexNew++;
+          }
+       }
+
+       int[] resizedAr = new int[indexNew];
+       ArrayUtils.arrayCopy(newAr, resizedAr);
+
+       return resizedAr;
+    }
 }
